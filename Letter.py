@@ -2,6 +2,7 @@
 #Determines and records point value and type of letter
 
 class Letter:
+    #Verify if letter value is valid and assign points
     def __init__(self, letter):
         self.__letter__ = letter
         if (letter == 'A'):

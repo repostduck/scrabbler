@@ -20,6 +20,8 @@ class Player:
         self.__numLetters__ += 1
         return
     def getHand(self):
-        copy = self.__hand__.copy()
+        copy = []
+        for i in range(len(self.__hand__)):
+            copy.append(self.__hand__[i])
         return copy
 
