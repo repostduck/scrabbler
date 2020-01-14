@@ -13,7 +13,7 @@ class Tile:
             self.bonus = value
         return
     def getBonus(self, value):
-        return bonus
+        return self.bonus
 
 #initialize a grid of 15 x 15 tiles and assign values to each
 #parameter: bonusCoords is a list acting as a stack containing (x,y) values
@@ -30,9 +30,3 @@ class Board:
         #removes existing bonus if any
         #TODO
         pass
-
-
-
-
-    
-        

@@ -24,4 +24,13 @@ class Player:
         for i in range(len(self.__hand__)):
             copy.append(self.__hand__[i])
         return copy
-
+    def askLetters(self, letter):
+        #queries self if a given Letter object exists (index, pop)
+        #if so pop desired Letter from List
+        #if (not isinstance(letter, Letter)):
+        #    return None
+       # else:
+           # for i in range(len(self.__hand__)):
+        pass
+        
+        

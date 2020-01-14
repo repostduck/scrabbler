@@ -74,4 +74,13 @@ class Letter:
             ('points', self.getPoints())
         ])
     
+    @classmethod
+    def equals(cls, eq1, eq2):
+        if (eq1.getLetter() == eq2.getLetter()):
+           return 1
+        
+        else:
+            return 0
+
+
 

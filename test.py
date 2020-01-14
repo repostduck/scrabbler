@@ -1,10 +1,7 @@
 from Player import Player
 from Letter import Letter
-jeff = Player("Jeff")
-jeff.updateScore(10)
-print(jeff.getScore())
-alpha = Letter('A')
-jeff.addToHand(alpha)
-print(alpha.getPoints())
-z = jeff.getHand()
-print(z[0].getPoints())
+
+#1. test Letter.equals
+a = Letter('A')
+b = Letter('A')
+print(Letter.equals(a, b))
