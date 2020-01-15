@@ -26,7 +26,7 @@ class Board:
         self.game = game
     def __updateTile__ (self, coord, letter):
         #assign the Letter to the designated tile
-        #return calculated (2l, 3l) score and type of multiplier (normal, 2w, 3w)
+        #return tuple of 1. calculated (2l, 3l) score and 2. type of multiplier (normal, 2w, 3w)
         #removes existing bonus if any
         #TODO
         pass
