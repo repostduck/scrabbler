@@ -62,21 +62,21 @@ class Letter:
         else:
             raise ValueError('not an acceptable letter value')
     
-    def getLetter(self):
+    def get_letter(self):
         return self.__letter__
 
-    def getPoints(self):
+    def get_points(self):
         return self.__points__
 
     def view(self):
         return dict([
-            ('letter', self.getLetter()),
-            ('points', self.getPoints())
+            ('letter', self.get_letter()),
+            ('points', self.get_points())
         ])
     
     @classmethod
     def equals(cls, eq1, eq2):
-        if (eq1.getLetter() == eq2.getLetter()):
+        if (eq1.get_letter() == eq2.get_letter()):
            return 1
         
         else:
