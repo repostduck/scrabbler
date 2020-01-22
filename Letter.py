@@ -59,6 +59,7 @@ class Letter:
             self.__points__ = 10
         elif(letter == 'BLANK'):
             self.__points__ = 0
+            self.__letter__ = 'BLANK'
         else:
             raise ValueError('not an acceptable letter value')
     
