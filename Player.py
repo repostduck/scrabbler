@@ -28,18 +28,11 @@ class Player:
 
     def get_hand_num(self):
         return self.__num_letters__
-    def place_letters(self, letter, board, coords): #rename place_letter
-        #queries self if a given Letter object exists
-        #if so removed desired Letter from hand
-        for i in range(len(self.__hand__)):
-            if Letter.equals(letter, self.__hand__[i]):
-                board.add_tile(coords, self.__hand__[i])
-                del self.__hand__[i]
-                self.__num_letters__ -= 1
-                return 1
-        return 0
-
-    
+    def place_letters(self, letter, board): #rename place_letter
+        #queries self if a given Letter object exists (index, pop)
+        #if so pop desired Letter from List
+        for i in range(len(self.__hand__):
+            if letter == self.__hand__[i].get_letter():
                 
         
         
