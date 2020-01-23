@@ -9,12 +9,12 @@ class Tile:
         self.score = 0
 
     def set_bonus(self, value):
-        if value is not ('Normal' or 'Letter_3' or 'Word_3' or 'Letter_2' or 'Word_2'):
+        if not (value == 'Normal' or value == '3l' or value == '3w' or value == '2l' or value == '2w'):
             raise ValueError("inappropriate bonus value phrase")
         else:
             self.bonus = value
         return
-    def get_bonus(self, value):
+    def get_bonus(self):
         return self.bonus
 
     def set_letter(self, letter):
@@ -26,6 +26,8 @@ class Tile:
         return 0
 
     def get_letter(self):
+        if self.letter.get_letter() == "BLANK":
+            return '?'
         return self.letter.get_letter()
     def is_inhabited(self):
         return self.inhabited
@@ -39,12 +41,14 @@ class Board:
             for y in range(15):
                 self.grid[(x,y)] = Tile()
         self.game = game
+        for i in range(len(bonus_coords)):
+            self.grid[(bonus_coords[i][0] - 1, bonus_coords[i][1] - 1)].set_bonus(bonus_coords[i][2])
 
-    def update_tile (self, coord, letter):
+    def add_tile (self, coord, letter):
         #assign the Letter to the designated tile
         #return tuple of 1. calculated (2l, 3l) score and 2. type of multiplier (normal, 2w, 3w)
         #removes existing bonus if any
-       self.grid[(coord[0], coord[1])].set_letter(letter)
+        self.grid[(coord[0], coord[1])].set_letter(letter)
 
     def print(self):
         for i in range(15):
