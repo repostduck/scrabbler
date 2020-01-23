@@ -1,7 +1,7 @@
 #Game object
 from Player import Player
-from Letter import Letter
 from Board import Board
+from Board import Tile
 import random
 #bonus coords list is indexed from 1-15
 BONUS_COORDS = [(1, 1, '3w'), (1, 4, '2l'), (1, 8, '3w'), (1, 12, '2l'), (1, 15, '3w'),
@@ -30,7 +30,7 @@ class Game:
         self.__tile_bag_count__ = 0
         for j in range(len(TILE_DIST)):
             for k in range(TILE_DIST[j][1]):
-                self.__tile_bag__.append(Letter(TILE_DIST[j][0]))
+                self.__tile_bag__.append(Tile(TILE_DIST[j][0]))
                 self.__tile_bag_count__ += 1
         self.__board__ = Board(self, BONUS_COORDS)
 

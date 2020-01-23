@@ -1,12 +1,12 @@
 from Player import Player
-from Letter import Letter
 from Game import Game
 from Board import Board
+from Board import Tile
 
 #1. test Letter.equals
-a = Letter('Q')
-b = Letter('A')
-print(Letter.equals(a, b))
+a = Tile('Q')
+b = Tile('A')
+print(Tile.equals(a, b))
 
 #2. initialize Player object, add Letters to its hand
 carl = Player('Carl')
@@ -28,23 +28,23 @@ print(game.get_tile_bag_count())
 for i in range(len(steve.get_hand())):
     print(steve.get_hand()[i].view())
 
-#5 initialize Board object, stick a Letter object on a tile
+#5 initialize Board object, stick a Tile object on a tile
 #write a Board.print method
 board = Board(game, [])
 board.add_tile([0,0], a)
-board.add_tile([14,0], Letter('G'))
-board.add_tile([14,1], Letter('R'))
-board.add_tile([14,2], Letter('E'))
-board.add_tile([14,3], Letter('A'))
-board.add_tile([14,4], Letter('T'))
-board.add_tile([10,10], Letter('BLANK'))
+board.add_tile([14,0], Tile('G'))
+board.add_tile([14,1], Tile('R'))
+board.add_tile([14,2], Tile('E'))
+board.add_tile([14,3], Tile('A'))
+board.add_tile([14,4], Tile('T'))
+board.add_tile([10,10], Tile('BLANK'))
 
-#6 place a Letter from a Player's hand onto a Tile on the Board
+#6 place a Tile from a Player's hand onto a Tile on the Board
 steve.place_letters(steve.get_hand()[0], board, [2,2])
 board.print()
 #7 place three Letters from a Player's hand onto Tiles on the Board, calculate scoring
 
-#8 add a blank tile to the board and prompt for letter, have game calculate score
+#8 add a blank tile to the board and prompt for tile, have game calculate score
 
 
 
