@@ -113,3 +113,54 @@ class Scrabbler:
         #prompt for Letter input, take from Player's hand
         #end of turn, add missing Letters to Player's hand
         pass
+
+    def valid(coord):
+        y,x = coord
+        if y <= 0 or y > 15 or x <= 0 or x > 15:
+            return 0
+        return 1
+
+    def backtrack(board, dir, start_coord = (7,7)):
+        word = ''
+        y,x = start_coord
+        queue = deque()
+        while (valid((y,x)) and board[15-x][y-1] != '_'):
+            queue.append((y,x))
+            if dir == 'UP':
+                x += 1
+            elif dir == 'DOWN':
+                x -= 1
+            elif dir == 'RIGHT':
+                y += 1
+            elif dir == 'LEFT':
+                y -= 1
+            else:
+                raise ValueError('invalid direction value')
+        size = len(queue)
+        word = ''
+        if dir == 'LEFT' or dir == 'UP':
+            for i in range(size):
+                y2,x2 = queue.pop()
+                word += board[15-x2][y2-1]
+        elif dir == 'RIGHT' or dir == 'DOWN':
+            for i in range(size):
+                y2,x2 = queue.popleft()
+                word += board[15-x2][y2 - 1]
+        else:
+            return
+        return word
+
+    def find_start(board, coord, dir = 'None'):
+        y,x = coord
+        #need to handle the case where there's both down and left possible
+        if (not valid((y,x))) or board[15 - x][y - 1] == '_':
+            return
+        if dir == 'None' or dir == 'LEFT':
+            if valid((x, y - 1)) and board[15 - x][y - 2] != '_':
+                y -= 1
+                return find_start(board, (y,x), 'LEFT')
+        if dir =='None' or dir == 'DOWN':
+            if valid((x - 1, y)) and board[16 - x][y - 1] != '_':
+                x -= 1
+                return find_start(board, (y,x), 'DOWN')
+        return (y,x)

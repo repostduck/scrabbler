@@ -103,7 +103,7 @@ class Tile:
 
 
 #initialize a grid of 15 x 15 tiles and assign values to each
-#parameter: bonusCoords is a list acting as a stack containing (x,y) values
+#parameter: bonusCoords is a list acting as a stack containing (y,x) values
 class Board:
     def __init__ (self, bonus_coords=[]):
         self.grid = []
@@ -118,8 +118,9 @@ class Board:
     def add_tile (self, coord, letter):
         #assign Tile to the designated space in grid
         #remove previous Tile
-        temp = self.grid[coord[0]][coord[1]]['tile']
-        self.grid[coord[0]][coord[1]].update({'tile' : letter})
+        y,x = coord
+        temp = self.grid[15 - x][y - 1]['tile']
+        self.grid[15 - x][y - 1].update({'tile' : letter})
         del temp
     def print(self):
         for i in range(15):

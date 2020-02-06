@@ -19,30 +19,30 @@ tiles = carl.get_hand()
 
 #3 initialize Scrabbler object, generate scrabble letter distribution
 game = Scrabbler()
-print(game.get_tile_bag_count())
+#print(game.get_tile_bag_count())
 
 #4 initialize Player object, have the Scrabbler give the Player a starting hand
 steve = Player('Steve')
 game.give_hand(steve)
 #print(steve.get_hand_num())
 #print(game.get_tile_bag_count())
-for i in range(len(steve.get_hand())):
-    print(steve.get_hand()[i].view())
+#for i in range(len(steve.get_hand())):
+    #print(steve.get_hand()[i].view())
 
 #5 initialize Board object, stick a Tile object on a tile
 #write a Board.print method
 board = Board()
-board.add_tile([0,0], a)
-board.add_tile([14,0], Tile('G'))
-board.add_tile([14,1], Tile('R'))
-board.add_tile([14,2], Tile('E'))
-board.add_tile([14,3], Tile('A'))
-board.add_tile([14,4], Tile('T'))
+board.add_tile([1,1], a)
+board.add_tile([14,1], Tile('G'))
+board.add_tile([14,2], Tile('R'))
+board.add_tile([14,3], Tile('E'))
+board.add_tile([14,4], Tile('A'))
+board.add_tile([14,5], Tile('T'))
 board.add_tile([10,10], Tile('BLANK'))
 
 #6 place a Tile from a Player's hand onto a Tile on the Board
 game.player_place_tile(steve, steve.get_hand()[0], (2,2))
-#board.print()
+board.print()
 
 #6b test ReversibleList Implementation
 li = ReversibleList([1, 2, 3, 4])
@@ -52,13 +52,13 @@ li2 = ReversibleList([5, 6, 7, 8])
 
 #6c test cancel_move()
 game.player_place_tile(steve, steve.get_hand()[0], (3,3))
-game.print_board()
+#game.print_board()
 game.cancel_move(steve)
-print('\n \n \n')
-game.print_board()
-print('\n \n \n')
-for i in steve.get_hand():
-    print(i.view())
+#print('\n \n \n')
+#game.print_board()
+#print('\n \n \n')
+#for i in steve.get_hand():
+    #print(i.view())
 #7 place three Letters from a Player's hand onto Tiles on the Board, calculate scoring
 
 #8 add a blank tile to the board and prompt for tile, have game calculate score
